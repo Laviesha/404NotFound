@@ -1,87 +1,16 @@
-# with
+# Installation
+> `npm install --save @types/node`
 
-Compile time `with` for strict mode JavaScript
+# Summary
+This package contains type definitions for Node.js (https://nodejs.org/).
 
-[![Build Status](https://img.shields.io/github/workflow/status/pugjs/with/Publish%20Canary/master?style=for-the-badge)](https://github.com/pugjs/with/actions?query=workflow%3A%22Publish+Canary%22)
-[![Rolling Versions](https://img.shields.io/badge/Rolling%20Versions-Enabled-brightgreen?style=for-the-badge)](https://rollingversions.com/pugjs/with)
-[![NPM version](https://img.shields.io/npm/v/with?style=for-the-badge)](https://www.npmjs.com/package/with)
+# Details
+Files were exported from https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/node.
 
-## Installation
+### Additional Details
+ * Last updated: Tue, 14 Mar 2023 06:02:37 GMT
+ * Dependencies: none
+ * Global values: `AbortController`, `AbortSignal`, `__dirname`, `__filename`, `console`, `exports`, `gc`, `global`, `module`, `process`, `require`, `structuredClone`
 
-    $ npm install with
-
-## Usage
-
-```js
-var addWith = require('with');
-
-addWith('obj', 'console.log(a)');
-// => ';(function (console, a) {
-//       console.log(a)
-//     }("console" in obj ? obj.console :
-//                          typeof console!=="undefined" ? console : undefined,
-//       "a" in obj ? obj.a :
-//                    typeof a !== "undefined" ? a : undefined));'
-
-addWith('obj', 'console.log(a)', ['console']);
-// => ';(function (console, a) {
-//       console.log(a)
-//     }("a" in obj ? obj.a :
-//                    typeof a !== "undefined" ? a : undefined));'
-```
-
-## API
-
-### addWith(obj, src[, exclude])
-
-The idea is that this is roughly equivallent to:
-
-```js
-with (obj) {
-  src;
-}
-```
-
-There are a few differences though. For starters, assignments to variables will always remain contained within the with block.
-
-e.g.
-
-```js
-var foo = 'foo';
-with ({}) {
-  foo = 'bar';
-}
-assert(foo === 'bar'); // => This fails for compile time with but passes for native with
-
-var obj = {foo: 'foo'};
-with ({}) {
-  foo = 'bar';
-}
-assert(obj.foo === 'bar'); // => This fails for compile time with but passes for native with
-```
-
-It also makes everything be declared, so you can always do:
-
-```js
-if (foo === undefined)
-```
-
-instead of
-
-```js
-if (typeof foo === 'undefined')
-```
-
-This is not the case if foo is in `exclude`. If a variable is excluded, we ignore it entirely. This is useful if you know a variable will be global as it can lead to efficiency improvements.
-
-It is also safe to use in strict mode (unlike `with`) and it minifies properly (`with` disables virtually all minification).
-
-#### Parsing Errors
-
-with internally uses babylon to parse code passed to `addWith`. If babylon throws an error, probably due to a syntax error, `addWith` returns an error wrapping the babylon error, so you can
-retrieve location information. `error.component` is `"src"` if the error is in the body or `"obj"` if it's in the object part of the with expression. `error.babylonError` is
-the error thrown from babylon.
-
-## License
-
-MIT
+# Credits
+These definitions were written by [Microsoft TypeScript](https://github.com/Microsoft), [DefinitelyTyped](https://github.com/DefinitelyTyped), [Alberto Schiabel](https://github.com/jkomyno), [Alvis HT Tang](https://github.com/alvis), [Andrew Makarov](https://github.com/r3nya), [Benjamin Toueg](https://github.com/btoueg), [Chigozirim C.](https://github.com/smac89), [David Junger](https://github.com/touffy), [Deividas Bakanas](https://github.com/DeividasBakanas), [Eugene Y. Q. Shen](https://github.com/eyqs), [Hannes Magnusson](https://github.com/Hannes-Magnusson-CK), [Huw](https://github.com/hoo29), [Kelvin Jin](https://github.com/kjin), [Klaus Meinhardt](https://github.com/ajafff), [Lishude](https://github.com/islishude), [Mariusz Wiktorczyk](https://github.com/mwiktorczyk), [Mohsen Azimi](https://github.com/mohsen1), [Nicolas Even](https://github.com/n-e), [Nikita Galkin](https://github.com/galkin), [Parambir Singh](https://github.com/parambirs), [Sebastian Silbermann](https://github.com/eps1lon), [Simon Schick](https://github.com/SimonSchick), [Thomas den Hollander](https://github.com/ThomasdenH), [Wilco Bakker](https://github.com/WilcoBakker), [wwwy3y3](https://github.com/wwwy3y3), [Samuel Ainsworth](https://github.com/samuela), [Kyle Uehlein](https://github.com/kuehlein), [Thanik Bhongbhibhat](https://github.com/bhongy), [Marcin Kopacz](https://github.com/chyzwar), [Trivikram Kamat](https://github.com/trivikr), [Junxiao Shi](https://github.com/yoursunny), [Ilia Baryshnikov](https://github.com/qwelias), [ExE Boss](https://github.com/ExE-Boss), [Piotr Błażejewicz](https://github.com/peterblazejewicz), [Anna Henningsen](https://github.com/addaleax), [Victor Perin](https://github.com/victorperin), [Yongsheng Zhang](https://github.com/ZYSzys), [NodeJS Contributors](https://github.com/NodeJS), [Linus Unnebäck](https://github.com/LinusU), [wafuwafu13](https://github.com/wafuwafu13), [Matteo Collina](https://github.com/mcollina), and [Dmitry Semigradsky](https://github.com/Semigradsky).
