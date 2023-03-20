@@ -1,0 +1,26 @@
+
+html
+  head
+   
+    title Quizzzing
+    block style 
+    style
+       include ../static/main3.css
+       
+  body
+    block content
+        div.container
+            h1(class="quizzzin") Quizzzin
+            h2(class="quote") Login to your account
+            form(action="/login", method="post" class="myform") 
+                input(type="text" , class="myInput", name="name", placeholder="Enter your name" required)
+                input(type="text" , class="myInput", name="username", placeholder="Enter your username" required)
+                input(type="email" , class="myInput", name="email", placeholder="Enter your email id" required)
+                
+                input(type="password" , class="myInput", name="password", placeholder="Enter your password" required)
+                button(class="btn")
+                    | Submit
+            h3(class="ala") Don't Have an Account? 
+        div.s
+          ul
+            li  #[a(href='/register') Register here]

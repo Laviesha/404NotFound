@@ -1,0 +1,56 @@
+
+html
+  head
+   
+    title Quizzzing
+    block style 
+    style
+        include ../static/style4.css
+       
+  body
+    block content
+      div.container
+        h1(class="header1") Quizzzin   
+        h2(class="header2") Create here(MCQ)
+        h2(class = "note")     Number of questions can be submmited
+        h2(class="max")  max:5
+        h2(class="min")  min:1
+        form(action="/yesno", method="post" class="myform")
+              h4 Enter Qusetion 1:
+              textarea(class="label1" rows="2" required name="question")
+              h4 Enter Correct answer(type yes/no)
+              input(type="text" , class="myInput" name="answer" required)
+              h4 Points :
+                input(type="number", class="input2"  name="number" required)
+              h4 ID :
+              h4 Enter Qusetion 2 :
+              textarea(class="label1" rows="2" name="question")
+              h4 Enter Correct answer(type yes/no)
+              input(type="text" , class="myInput" name="answer" )
+              h4 Points :
+                input(type="number", class="input2"  name="number" )
+              h4 ID :
+              h4 Enter Qusetion 3 :
+              textarea(class="label1" rows="2" name="question")
+              h4 Enter Correct answer(type yes/no)
+              input(type="text" , class="myInput" name="answer" )
+              h4 Points :
+                input(type="number", class="input2"  name="number" )
+              h4 ID :
+              h4 Enter Qusetion 4 :
+              textarea(class="label1" rows="2" name="question")
+              h4 Enter Correct answer(type yes/no)
+              input(type="text" , class="myInput" name="answer" )
+              h4 Points :
+                input(type="number", class="input2"  name="number" )
+              h4 ID :
+              h4 Enter Qusetion 5 :
+              textarea(class="label1" rows="2" name="question")
+              h4 Enter Correct answer(type yes/no)
+              input(type="text" , class="myInput" name="answer" )
+              h4 Points :
+                input(type="number", class="input2"  name="number" )
+              h4 Code :
+                input(type="number", class="input2" required name="code")
+              button(class="btn")
+                | Submit 

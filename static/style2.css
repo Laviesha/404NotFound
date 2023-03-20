@@ -1,0 +1,45 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.container p{
+text-align: center;
+margin-top: 300px;
+font-size: 50px;
+color:#fff
+}
+body{
+    background-image: url("/static/p6.jpg");
+    background-size: cover;
+background-attachment: fixed;
+}
+.sign1{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top : 10px;
+    margin-left: 680px;
+    padding: 20px;
+    }
+
+    .sign1 a{
+        color: #f9f3f3;
+    text-decoration: none;
+    padding:3px 10px;
+    margin-right: 1px;
+    border:5px solid #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+    }
+    .sign1 a:hover{
+        color:#003438;
+        background-color: rgb(194, 194, 194);
+        transition: 0.7s;
+    }
+    .sign1 ul li{
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        margin-top: 20px;
+        cursor: pointer;
+       }

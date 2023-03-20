@@ -1,0 +1,28 @@
+html
+    head
+    body
+    h1(class="quizzzin")    Quizzzin
+    h1(class="attempt") Attempt
+    h4(class="join")    Join Quiz :
+    form(action="/attemptmcq", method="post" class="myform")
+    input(type="Number" , class="myInput", name="code", placeholder="Enter the Code" required)
+    button(class="btn2") 
+        |   Submit
+    form
+    h4  Question :
+       h1 #{ques} 
+    //-<%if(typeof(ques)!='undefined'){%>
+    //-<% ques.forEach((element) { %>
+    //- h4  <%= element.question %>
+    //- input(type="checkbox" name="option1" id="option1")
+    //- label   <%= element.option1 %>
+    //- input(type="checkbox" name="option2" id="option2")
+    //- label   <%= element.option2 %>
+    //- input(type="checkbox" name="option3" id="option3")
+    //- label   <%= element.option3 %
+    //- input(type="checkbox" name="option4" id="option4")
+    //- label   <%= element.option4 %>
+    //- p   Points : <%= element.number%>
+    //- <>
+    //- <%})%>
+    //- <%}%>

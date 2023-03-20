@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="quizzzin">Quizzzin</h1>
+    <h1 class="attempt"> Attempt</h1>
+    <h4 class="join">Join Quiz :</h4>
+    <form action="/attemptmcq" method="post" class="myform">
+    <input type="Number" class="myInput" name="code" placeholder="Enter the Code" required>
+    <button class="btn">Submit</button>
+    </form>
+    <% if(ObjectId){ %>
+        <table>
+            <tr>
+                <th>Question</th>
+                <th>Option1</th>
+                <th>Option2</th>
+                <th>Option3</th>
+                <th>Option4</th>
+            </tr>
+            <% ObjectId.forEach(function(quizzes) { %>
+                <tr>
+                    <td><%= quizzes.question %></td>
+                    <td><%= quizzes.option1 %></td>
+                    <td><%= quizzes.option2 %></td>
+                    <td><%= quizzes.option3 %></td>
+                    <td><%= quizzes.option4 %></td>
+                </tr>
+                 
+                    <% }); %> 
+        </table>
+        <% } else{ %>  
+        <div></div>
+    <% } %>
+</body>
+</html>

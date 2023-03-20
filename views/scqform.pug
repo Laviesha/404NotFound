@@ -1,0 +1,38 @@
+
+html
+  head
+   
+    title Quizzzing
+    block style 
+    style
+        include ../static/style4.css
+       
+  body
+    block content
+      div.container
+        h1(class="header1") Quizzzin   
+        h2(class="header2") Create here(MCQ)
+        h2(class = "note")     Number of questions can be submmited
+        h2(class="max")  max:5
+        h2(class="min")  min:1
+        form(action="/scqform", method="post" class="myform")
+          h4 Enter Qusetion :
+                textarea(class="label1" rows="4"  name="question" required )
+          h4 Option 1:
+                input(type="text" , class="myInput" name="option1" required)
+          h4 Option 2:                
+                input(type="text" , class="myInput"  name="option2" required)
+          h4 Option 3:                
+                input(type="text" , class="myInput" name="option3" )
+          h4 Option 4:
+                input(type="text" , class="myInput" name="option4" )
+          h4 Enter Correct option number
+                input(type="number",min="1",max="4" class="input1" name="answer" )
+          h4 Points :
+                input(type="number", class="input2" name="number")
+          h4 Code :
+                input(type="number", class="input2" required name="code")              
+                button(class="btn")
+                    |   Submit
+                
+      
